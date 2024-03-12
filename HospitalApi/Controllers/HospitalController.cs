@@ -2,9 +2,9 @@
 
 namespace HospitalApi.Controllers
 {
-    public class Product
+    public class Medicines
     {
-        public string NameNameMedicine { get; set; }
+        public string NameMedicine { get; set; }
         public string Warehouse { get; set; }
         public int Value { get; set; }
     }
@@ -12,16 +12,61 @@ namespace HospitalApi.Controllers
     public class HospitalController : Controller
     {
         [HttpGet, Route("Apteka")]
-        public IEnumerable<Product> GetTableData()
+        public IEnumerable<Medicines> GetTableData()
         {
-            List<Product> products = new List<Product>();
+            List<Medicines> medicines = new List<Medicines>();
 
-            products.Add(new Product { NameNameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
-            products.Add(new Product { NameNameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
-            products.Add(new Product { NameNameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
-            products.Add(new Product { NameNameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Аджисепт", Warehouse = "Склад в поле", Value = 100 });
+            medicines.Add(new Medicines { NameMedicine = "Грамидин", Warehouse = "Склад в городе", Value = 400 });
+            medicines.Add(new Medicines { NameMedicine = "Гексарал спрей", Warehouse = "Склад за городом", Value = 250 });
+            medicines.Add(new Medicines { NameMedicine = "Альмагель А", Warehouse = "Склад за городом", Value = 250 });
 
-            return products;
+
+            return medicines;
         }
     }
 }
