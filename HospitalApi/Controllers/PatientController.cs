@@ -9,7 +9,7 @@ namespace HospitalApi.Controllers
     public class PatientController : Controller
     {
         // GET: /Patients
-        [HttpGet, Route("Patient")]
+        [HttpGet, Route("Patient/Get")]
         public IEnumerable<Patient> GetPatients()
         {
             List<Patient> patients = new List<Patient>();
@@ -22,7 +22,7 @@ namespace HospitalApi.Controllers
         }
 
         // GET: /Patients/1
-        [HttpGet, Route("Patient/{id}")]
+        [HttpGet, Route("Patient/Get/{id}")]
         public Patient GetPatients(int id)
         {
             List<object[]> responsePatients = DataBaseWorker.ExecuteQueryObject($"SELECT * FROM Patients WHERE Id_Patient = {id}", 11); ;
@@ -38,6 +38,9 @@ namespace HospitalApi.Controllers
             if (responsePatients == null || responsePatients.Count == 0)
                 return BadRequest("Не корректный Id_Patient");
 
+            byte[] photoBytes = Convert.FromBase64String(updatedPatient.PatientPhoto);
+            string photoVarbinary = BitConverter.ToString(photoBytes).Replace("-", "");
+
             // Обновляем информацию о пациенте
             string updateQuery = $"UPDATE Patients SET LastName = N'{updatedPatient.LastName}', " +
                                  $"FirstName = N'{updatedPatient.FirstName}', " +
@@ -47,9 +50,9 @@ namespace HospitalApi.Controllers
                                  $"Gender = N'{updatedPatient.Gender}', " +
                                  $"Address = N'{updatedPatient.Address}', " +
                                  $"PhoneNumber = N'{updatedPatient.PhoneNumber}', " +
-                                 $"Email = N'{updatedPatient.Email}' " +
+                                 $"Email = N'{updatedPatient.Email}', " +
+                                 $"PatientPhoto = 0x{photoVarbinary} " +
                                  $"WHERE Id_Patient = {id}";
-
             try
             {
                 DataBaseWorker.ExecuteQueryWithoutResponse(updateQuery);
@@ -68,6 +71,8 @@ namespace HospitalApi.Controllers
             if (insertPatient == null)
                 return BadRequest("Не корректные данные");
 
+            byte[] photoBytes = Convert.FromBase64String(insertPatient.PatientPhoto);
+            string photoVarbinary = BitConverter.ToString(photoBytes).Replace("-", "");
 
             string insertQuery = $"INSERT INTO Patients (LastName, FirstName, Patronymic, PassportData, DateOfBirth, Gender, Address, PhoneNumber, Email, PatientPhoto) " +
                      $"VALUES (N'{insertPatient.LastName}', " +
@@ -79,7 +84,7 @@ namespace HospitalApi.Controllers
                      $"N'{insertPatient.Address}', " +
                      $"N'{insertPatient.PhoneNumber}', " +
                      $"N'{insertPatient.Email}', " +
-                     "null)";
+                     $"0x{photoVarbinary})";
 
             try
             {

@@ -1,4 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace HospitalApi.Models
 {
@@ -14,7 +16,7 @@ namespace HospitalApi.Models
         public string Address { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public byte[] Photo { get; set; }
+        public string PatientPhoto { get; set; }
 
         public Patient() { }
 
@@ -33,9 +35,35 @@ namespace HospitalApi.Models
 
             if (patientData[10] != DBNull.Value)
             {
-                Photo = (byte[])patientData[10];
+                byte[] varbinaryData = (byte[])patientData[10];
+                PatientPhoto = Convert.ToBase64String(varbinaryData);
             }
+
+            //if (patientData[10] != DBNull.Value)
+            //{
+            //    PatientPhoto = (byte[])patientData[10];
+            //}
         }
 
+
+        [JsonConstructor]
+        public Patient(int Id_Patient, string LastName, string FirstName, string Patronymic, string PassportData, string DateOfBirth, string Gender, string Address, string PhoneNumber, string Email, string PatientPhoto)
+        {
+            this.Id_Patient = Id_Patient;
+            this.LastName = LastName;
+            this.FirstName = FirstName;
+            this.Patronymic = Patronymic;
+            this.PassportData = PassportData;
+            this.DateOfBirth = DateOfBirth;
+            this.Gender = Gender;
+            this.Address = Address;
+            this.PhoneNumber = PhoneNumber;
+            this.Email = Email;
+
+            if (PatientPhoto != null)
+            {
+                this.PatientPhoto = PatientPhoto;
+            }
+        }
     }
 }
